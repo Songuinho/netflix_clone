@@ -33,7 +33,7 @@ class _LoadingPageState extends State<LoadingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
-          backgroundColor: Colors.black,
+          backgroundColor: const Color(0xFF000000),
           body: Center(
             child: Lottie.asset(
               "assets/lotties/netflix.json",

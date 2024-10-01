@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/pages/login_page.dart';
 import 'package:netflix/widgets/onboarding.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -16,6 +17,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.black,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           toolbarHeight: 80,
@@ -50,7 +52,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               },
               children: const [
                 Onboarding(
-                    title: 'Unlimited movies, TV shows,  and more.',
+                    title: 'SONGUINHO you are the best, whoever you are.',
                     subtitle: 'Watch anywhere. Cancel anytime.',
                     image: 'assets/images/obd4.jpg'),
                 Onboarding(
@@ -69,6 +71,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  const Spacer(), // Ajoute de l'espace en haut
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
@@ -87,12 +90,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 40,
-                    child: ElevatedButton(
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 40),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 40,
+                      child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
                           foregroundColor: Colors.white,
@@ -100,8 +105,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
-                        onPressed: () {},
-                        child: const Text("Get started")),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
+                        },
+                        child: const Text("Get started"),
+                      ),
+                    ),
                   ),
                 ],
               ),
